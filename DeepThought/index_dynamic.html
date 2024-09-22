@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $.getJSON('index.json', function(data) {
+            console.log("data:", data);
+            var title = data.title;
+            var taskTitle = data.tasks[0].task_title;
+            var taskDesc = data.tasks[0].task_description;
+            console.log("title:", title);
+            console.log("tasks:", data.tasks[0]);
+            console.log("assets:", data.tasks[0].assets);
+            $("#title").html(`<h2><b>${ title} </b></h2>`);
+            $("#task-title").html(`<h3><b>${ taskTitle}</b></h3><br>`);
+            $("#task-description").html(`<p>${ taskDesc}</p>`);
+            
+            $('#asset-title-1').html(`<h4> ${data.tasks[0].assets[0].asset_title} </h4>
+                        <ion-icon name='information-circle-outline'></ion-icon>`);
+
+            $('#asset-title-2').html(`<h4> ${data.tasks[0].assets[1].asset_title} </h4>
+            <ion-icon name='information-circle-outline'></ion-icon>`);
+
+            $('#asset-title-3').html(`<h4> ${data.tasks[0].assets[2].asset_title} </h4>
+            <ion-icon name='information-circle-outline'></ion-icon>`);
+
+            $('#asset-title-4').html(`<h4> ${data.tasks[0].assets[3].asset_title} </h4>
+            <ion-icon name='information-circle-outline'></ion-icon>`);
+
+
+            $('#asset-desc-1').html(`<p> ${data.tasks[0].assets[0].asset_description} </p>`);
+
+            $('#asset-desc-2').html(`<p> ${data.tasks[0].assets[1].asset_description} </p>`);
+
+            $('#asset-desc-3').html(`<p> ${data.tasks[0].assets[2].asset_description} </p>`);
+
+            $('#asset-desc-4').html(`<p> ${data.tasks[0].assets[3].asset_description} </p>`);
+            
+
+        });
+
+    </script>
+</head>
+<body>
+    <div class="logo">
+        <span><img src="https://deepthought.education/assets/images/logo/logo.svg" class="DT"></span>
+        <ul>
+            <li>
+                <a href="">
+                    <ion-icon name="home"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <ion-icon name="settings"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <ion-icon name="notifications-circle"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="notice-board">
+        <span class="close-btn">&times;</span>
+        Notice Board
+      </div>
+      <div class="sidebar" id="sidebar">
+        <!-- Arrow button -->
+        <div class="arrow-btn" id="arrowBtn"></div>
+    
+        <!-- Numbered button -->
+         <div class="border">
+            <div class="number-btn">1</div>
+         </div>
+    
+        <!-- Text to display on sidebar click -->
+        <div class="sidebar-text" id="sidebarText">
+            <ul>
+                <li><b><h4>Explore the world of management</h4></b></li><br>
+                <li>Technical Project Management</li>
+                <li>Threadbuild</li>
+                <li>Structure Your Pointers</li>
+                <li>4SA Method</li>
+            </ul>
+        </div>
+      </div>
+    <div class="head-section">
+        <div id="title">
+
+        </div>
+        
+        <button>Submit task</button>
+    </div>
+    <div class="text-box">
+        <div id="task-title">
+
+        </div>
+        <div id="task-description">
+
+        </div>
+        
+        
+    </div>
+    <div class="sections">  <!-- for entire 4 sections-->
+
+        <div class="section-a"> <!-- for 1st section-->
+            <div class="sec-head-a" id="asset-title-1">
+               
+            </div>
+           <div class="description">
+            <h4>Description:</h4>
+            <div id="asset-desc-1">
+
+            </div>
+           </div> 
+           <div class="pictue">
+            <img src="Screenshot 2024-09-20 235708.png" style="margin-top: 20px;width: 100%;height: auto;">
+          </div>
+        </div>
+
+        <div class="section-a"> <!-- for 1st section-->
+            <div class="sec-head-a" id="asset-title-2">
+               
+            </div>
+           <div class="description">
+            <h4>Description:</h4>
+            <div id="asset-desc-2">
+
+            </div>
+           </div> 
+           <div class="section-b">
+            <ion-icon name="chevron-up-outline"></ion-icon>
+            <h2>Thread A</h2>
+          </div>
+          <div class="container">
+            <div class="box-a">
+                <label for="subThread">Sub thread 1</label>
+                <textarea id="subThread" placeholder="Enter Text here"></textarea>
+            </div>
+            <div class="box-b">
+                <label for="subInterpretation">Sub Interpretation 1</label>
+                <textarea id="subInterpretation" placeholder="Enter Text here"></textarea>
+            </div>
+        </div>
+
+        <div class="category">
+            <ul>
+                <li>
+                    <a href="#">
+                        <ion-icon name="bulb"></ion-icon>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <ion-icon name="chatbox-ellipses"></ion-icon>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <ion-icon name="help-circle"></ion-icon>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <ion-icon name="rose"></ion-icon>
+                    </a>
+                </li>
+            </ul>
+            <select class="sele">
+                <option><b>Select Category</b>b></option>
+            </select>
+            <select class="sele">
+                <option><b>Select Process</b></option>
+            </select>
+        </div>
+        <div class="btn">
+            <button>+ Sub-thread</button>
+        </div>
+        <div class="summary">
+            <div class="summary-box">
+                <label for="summaryThreadA" id="thread-A">Summary for Thread A</label>
+                <textarea id="summaryThreadA" placeholder="Enter Text Here"></textarea>
+            </div>
+        </div>
+        </div>  
+    </div><br>
+
+    <div class="sections">  <!-- for entire 4 sections-->
+        <div class="section-a"> <!-- for 1st section-->
+            <div class="sec-head-a" id="asset-title-3">
+               
+            </div>
+           <div class="description-c">
+            <h4>Description:</h4>
+            <div id="asset-desc-3">
+
+            </div>
+           </div> 
+           <div class="sub-description">
+            <div class="title-c">
+                <h4>Title</h4>
+                <div class="title-box">
+                    <textarea id="title-C" placeholder=""></textarea>
+                </div>
+              </div>
+              <div class="content">
+                <h4>Content</h4>
+                <div class="sub-content-a">
+                    <div class="sub-content">
+                        <div class="elements">
+                            <ul>
+                                <li>File</li>
+                                <li>Edit</li>
+                                <li>View</li>
+                                <li>Insert</li>
+                                <li>Format</li>
+                                <li>Tools</li>
+                                <li>Table</li>
+                                <li>Help</li>
+                            </ul>
+                        </div>
+                        <div class="element-icons">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <ion-icon name="arrow-undo-circle-outline"></ion-icon>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <ion-icon name="arrow-redo-circle-outline"></ion-icon>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <ion-icon name="expand-outline"></ion-icon>
+                                    </a>
+                                </li>
+                                <li>
+                                        <label id="para" placeholder="Paragraph">paragraph</label>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+           </div>
+          </div>
+        </div>
+        <div class="section-a"> <!-- for 1st section-->
+            <div class="sec-head-a" id="asset-title-4">
+               
+            </div>
+           <div class="description">
+            <h4>Description:</h4>
+            <div id="asset-desc-4">
+
+            </div>
+           </div> 
+           <div class="details">
+            <div class="dropdown">
+                <ion-icon name="chevron-up-outline"></ion-icon>
+                <h3>Introduction</h3>
+            </div>
+            <div class="intro">
+                <span>The 4SA Method , How to bring a idea into progress ?</span>
+            </div><br>
+            <p class="p2">See More</p>
+            <div class="dropdown-2">
+                <ion-icon name="chevron-up-outline"></ion-icon>
+                <h3>Thread A</h3>
+            </div>
+            <div class="intro-2">
+                <span>How are you going to develop your stratergy ? which method are you going to use to develop a stratergy ? what if the project is lengthy?</span>
+            </div><br>
+            <p class="p2">See More</p>
+            <div class="dropdown-3">
+                <h4>Example 1</h4>
+            </div>
+            <div class="intro-3">
+                <span>You have a concept , How will you put into progress?</span>
+            </div><br>
+          </div>
+        </div>
+        
+    </div>
+    <div class="last">
+        <ul>
+            <li>
+                <a href="#">
+                    <ion-icon name="help-circle-outline"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <ion-icon name="people-outline"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <ion-icon name="calendar-number-outline"></ion-icon>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // JavaScript to toggle sidebar expansion and text visibility
+        const sidebar = document.getElementById('sidebar');
+        const arrowBtn = document.getElementById('arrowBtn');
+        const sidebarText = document.getElementById('sidebarText');
+    
+        arrowBtn.addEventListener('click', () => {
+          sidebar.classList.toggle('expanded');
+        });
+      </script>
+
+</body>
+</html>
